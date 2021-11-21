@@ -42,7 +42,7 @@
         <a class="nav-link" href="./insert.jsp">INSERT</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./reset.jsp">RESET</a>
+        <a class="nav-link" href="./reset.jsp">INSERT</a>
       </li>
     </ul>
   </div>
