@@ -1,15 +1,23 @@
 <%! String title = "SELECT Operation"; %>
 <%@ include file="./header.jsp" %>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ page import="com.mysql.jdbc.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
  
 
  
+      <c:set var="empId" value="100"/>
+      <c:set var="last" value="Ali"/> 
+      <sql:update dataSource="${snapshot}" var="count">
+  UPDATE Employees SET last = ? WHERE id = ?
+
+      <sql:param value="${last}" />
+      <sql:param value="${empId}" />
+    </sql:update>
+ 
       <sql:query dataSource = "${snapshot}" var = "result">
-         SELECT * from employees;
+         SELECT * from Employees;
       </sql:query>
  
       <table border = "1" width = "100%">
@@ -19,7 +27,7 @@
             <th>Last Name</th>
             <th>Age</th>
          </tr>
-         
+            
          <c:forEach var = "row" items = "${result.rows}">
             <tr>
                <td><c:out value = "${row.id}"/></td>
@@ -30,4 +38,5 @@
          </c:forEach>
       </table>
  
-<%@ include file="./footer.jsp" %>
+   </body>
+</html>

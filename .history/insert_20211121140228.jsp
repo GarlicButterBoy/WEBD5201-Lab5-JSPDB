@@ -1,15 +1,17 @@
 <%! String title = "SELECT Operation"; %>
 <%@ include file="./header.jsp" %>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ page import="com.mysql.jdbc.*"%>
+<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
  
 
+         <sql:update dataSource = "${snapshot}" var = "result">
+         INSERT INTO Employees VALUES (104, 2, 'Nuha', 'Ali');
+      </sql:update>
  
       <sql:query dataSource = "${snapshot}" var = "result">
-         SELECT * from employees;
+         SELECT * from Employees;
       </sql:query>
  
       <table border = "1" width = "100%">

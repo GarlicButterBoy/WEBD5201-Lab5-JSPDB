@@ -1,11 +1,8 @@
+
 <%! String title = "SELECT Operation"; %>
 <%@ include file="./header.jsp" %>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ page import="com.mysql.jdbc.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
- 
+
+
 
  
       <sql:query dataSource = "${snapshot}" var = "result">
@@ -29,5 +26,7 @@
             </tr>
          </c:forEach>
       </table>
- 
+
+
 <%@ include file="./footer.jsp" %>
+

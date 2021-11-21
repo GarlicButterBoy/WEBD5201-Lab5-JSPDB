@@ -1,12 +1,18 @@
-<%! String title = "SELECT Operation"; %>
-<%@ include file="./header.jsp" %>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ page import="com.mysql.jdbc.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
  
+<html>
+   <head>
+      <title>SELECT Operation</title>
+   </head>
 
+   <body>
+      <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
+         url = "jdbc:mysql://localhost/test?characterEncoding=utf8"
+         user = "root"  password = "100303769"/>
  
       <sql:query dataSource = "${snapshot}" var = "result">
          SELECT * from employees;
@@ -30,4 +36,5 @@
          </c:forEach>
       </table>
  
-<%@ include file="./footer.jsp" %>
+   </body>
+</html>
